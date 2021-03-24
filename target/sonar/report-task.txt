@@ -1,0 +1,6 @@
+projectKey=es.urjc.code:milagros.mourinio.fatima.smounat
+serverUrl=http://localhost:9000
+serverVersion=8.7.1.42226
+dashboardUrl=http://localhost:9000/dashboard?id=es.urjc.code%3Amilagros.mourinio.fatima.smounat
+ceTaskId=AXhPgAiqzdpLztKOfHjJ
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXhPgAiqzdpLztKOfHjJ
