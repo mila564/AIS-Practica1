@@ -43,10 +43,13 @@ class SeleniumTest {
 	}
 	@Test
 	void bookSaveSeleniumTest() {
-		//given
+		
+		// Given
+		
 		driver.get("http://localhost:"+this.port+"/");		
 		
-		//when
+		// When
+		
 	    driver.findElement(By.xpath("//button[@onclick=\"location.href='/newbook'\"]")).click();
 		driver.findElement(By.name("title")).sendKeys("Reina Roja");
 		driver.findElement(By.name("description")).sendKeys("Misterio");
@@ -54,7 +57,8 @@ class SeleniumTest {
 		driver.findElement(By.xpath("//button[@onclick=\"location.href='/'\"]")).click();
 			
 		
-		//then
+		// Then
+		
 		assertNotNull(driver.findElement(By.partialLinkText("Roja")));
 		
 		
@@ -66,17 +70,20 @@ class SeleniumTest {
 		int id_elemento_a_borrar;
 		String boton_borrar;
 		
-		//given
+		//Given
+		
 		driver.get("http://localhost:"+this.port+"/");	
 		
-		//when
+		// When
+		
 	    driver.findElement(By.xpath("//button[@onclick=\"location.href='/newbook'\"]")).click();
 		driver.findElement(By.name("title")).sendKeys("el secreto de tus ojos");
 		driver.findElement(By.name("description")).sendKeys("amor");
 		driver.findElement(By.id("Save")).click();
 		driver.findElement(By.xpath("//button[@onclick=\"location.href='/'\"]")).click();
 		
-		//then
+		// Then
+		
 		assertNotNull(driver.findElement(By.partialLinkText("ojos")));
 		
 		driver.findElement(By.linkText("el secreto de tus ojos")).click();

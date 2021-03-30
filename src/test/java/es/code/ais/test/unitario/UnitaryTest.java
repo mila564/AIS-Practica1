@@ -34,14 +34,14 @@ class UnitaryTest {
 
 	    Book newbook = mock(Book.class);
 
-	    //when
+	    // When
 	    
 	    when(repository.save(book)).thenReturn(newbook);
 	    when(newbook.getTitle()).thenReturn("Cumbres Borrascosas");
 		
 		bookService.save(book);
 			
-		//then
+		// Then
 		
 		verify(repository, times(1)).save(book);
 		verify(notification).notify("Book Event: book with title="+"Cumbres Borrascosas"+" was created");
@@ -49,10 +49,12 @@ class UnitaryTest {
 	}
 	@Test
 	void bookDeleteUnitaryTest() {
+		
 		Book newbook = mock(Book.class);
 
-	    //when
-	    long id = 21l;
+	    // When
+	    
+		long id = 21l;
 	    when(repository.save(book)).thenReturn(newbook);
 	    when(newbook.getTitle()).thenReturn("Cumbres Borrascosas");
 	    
@@ -60,7 +62,8 @@ class UnitaryTest {
 		
 		bookService.delete(id);
 			
-		//then
+		// Then
+		
 		verify(repository).deleteById(id);
 		verify(notification).notify("Book Event: book with id="+id+" was deleted");
 		
