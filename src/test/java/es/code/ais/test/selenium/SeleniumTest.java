@@ -66,11 +66,12 @@ class SeleniumTest {
 	
 	@Test 
 	void bookDeleteSeleniumTest() {
+		
 		String url_elemento_a_borrar;
 		int id_elemento_a_borrar;
 		String boton_borrar;
 		
-		//Given
+		// Given
 		
 		driver.get("http://localhost:"+this.port+"/");	
 		
