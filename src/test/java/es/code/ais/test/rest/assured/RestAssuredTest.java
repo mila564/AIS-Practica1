@@ -77,10 +77,5 @@ class RestAssuredTest{
 			.get("/api/books/{id}",id).
 		then()
 			.statusCode(404);
-			
-		
-		
 	}
-	
-	
 }

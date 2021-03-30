@@ -62,9 +62,9 @@ class SeleniumTest {
 	
 	@Test 
 	void bookDeleteSeleniumTest() {
-		String url;
-		int i;
-		String s;
+		String url_elemento_a_borrar;
+		int id_elemento_a_borrar;
+		String boton_borrar;
 		
 		//given
 		driver.get("http://localhost:"+this.port+"/");	
@@ -81,10 +81,10 @@ class SeleniumTest {
 		
 		driver.findElement(By.linkText("el secreto de tus ojos")).click();
 		
-		url = driver.getCurrentUrl();
-		i = Character.getNumericValue(url.charAt(url.length()-1));
-		s = "//button[@onclick=\"location.href='/removebook/" + i + "'\"]";
-		driver.findElement(By.xpath(s)).click();
+		url_elemento_a_borrar = driver.getCurrentUrl();
+		id_elemento_a_borrar = Character.getNumericValue(url_elemento_a_borrar.charAt(url_elemento_a_borrar.length()-1));
+		boton_borrar = "//button[@onclick=\"location.href='/removebook/" + id_elemento_a_borrar + "'\"]";
+		driver.findElement(By.xpath(boton_borrar)).click();
 		
 		By by = By.partialLinkText("ojos");
 		assertThrows(NoSuchElementException.class, ()->{
