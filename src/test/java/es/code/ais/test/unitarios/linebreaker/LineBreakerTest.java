@@ -9,12 +9,27 @@ public class LineBreakerTest {
 	
 	@Test
 	public void testEmptyString() {
-		testLineBreaker("", "");
+		testLineBreaker("", "", 2);
 	}
-
+	
 	@Test
-	private void testLineBreaker(String originalText, String expectedText) {
-		assertEquals(expectedText, new LineBreaker().breakText(originalText, 10));		
+	public void testLongitudCadenaIgualLength() {
+		testLineBreaker("test", "test", 4);
+	}
+	
+	@Test
+	public void testLongitudCadenaMayorLength() {
+		testLineBreaker("test", "test", 5);
+	}
+	
+	@Test
+	public void testDosPalabrasLongitudPalabraIgualLength() {
+		testLineBreaker("test test", "test\ntest", 4);
+	}
+	
+	@Test
+	private void testLineBreaker(String originalText, String expectedText, int lineLength) {
+		assertEquals(expectedText, new LineBreaker().breakText(originalText, lineLength));		
 	}
 	
 	
