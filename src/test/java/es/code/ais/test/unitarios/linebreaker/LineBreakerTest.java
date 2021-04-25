@@ -13,18 +13,28 @@ public class LineBreakerTest {
 	}
 	
 	@Test
-	public void testLongitudCadenaIgualLength() {
+	public void testWordLengthEqualsLineLength() {
 		testLineBreaker("test", "test", 4);
 	}
 	
 	@Test
-	public void testLongitudCadenaMayorLength() {
+	public void testWordLengthGreaterThanLineLength() {
 		testLineBreaker("test", "test", 5);
 	}
 	
 	@Test
-	public void testDosPalabrasLongitudPalabraIgualLength() {
+	public void testWordsLengthEqualsLineLength() {
 		testLineBreaker("test test", "test\ntest", 4);
+	}
+	
+	@Test
+	public void testWordsLength1UnitGreaterThanLineLength() {
+		testLineBreaker("test test", "test\ntest", 5);
+	}
+	
+	@Test
+	public void testWordsLength2UnitsGreaterThanLineLength() {
+		testLineBreaker("test test", "test\ntest", 6);
 	}
 	
 	@Test
