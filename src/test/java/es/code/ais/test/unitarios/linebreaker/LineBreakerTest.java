@@ -38,9 +38,13 @@ public class LineBreakerTest {
 	}
 	
 	@Test
+	public void testWordsLength2EqualsLineLength() {
+		testLineBreaker("test test test test", "test test\ntest test", 9);
+	}
+	
+	@Test
 	private void testLineBreaker(String originalText, String expectedText, int lineLength) {
 		assertEquals(expectedText, new LineBreaker().breakText(originalText, lineLength));		
 	}
-	
 	
 }

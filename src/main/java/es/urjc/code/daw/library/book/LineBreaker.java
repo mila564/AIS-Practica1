@@ -6,17 +6,12 @@ public class LineBreaker {
 		if (text.length() <= lineLength){
 			return text;
 		}
-		else if (text.equals("test test")) {
-			return "test\ntest";
+		else if (text.charAt(lineLength) == ' ') {
+			return text.substring(0, lineLength) + '\n'+ 
+					breakText(text.substring(lineLength+1, text.length()), lineLength);
 		}
-		else {
-			StringBuilder newText = new StringBuilder(text);
-			for (int i = 0; i < text.length(); i++) {
-				if ((i != 0) && (i <= lineLength) && (text.charAt(i) == ' ')) {
-					newText.setCharAt(i, '\n');
-				}
-			}
-			return newText.toString();
+		else{
+			return breakText(text, lineLength-1);
 		}
 	}
 
