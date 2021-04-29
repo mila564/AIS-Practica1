@@ -51,10 +51,19 @@ public class LineBreakerTest {
 		testLineBreaker("test   test", "test\ntest", 6);
 	}
 	
+	@Test
+	public void test2WordsConcatanationNeedPartition() {
+		testLineBreaker("testtest", "test-\ntest", 5);
+	}
+	
+	@Test
+	public void test3WordsConcatanationNeedPartition() {
+		testLineBreaker("testtesttest", "test-\ntest-\ntest", 5);
+	}
 	
 	@Test
 	private void testLineBreaker(String originalText, String expectedText, int lineLength) {
-		assertEquals(expectedText, new LineBreaker().breakText(originalText, lineLength));		
+		assertEquals(expectedText, new LineBreaker().breakText(originalText, lineLength, lineLength));		
 	}
 	
 }
