@@ -3,6 +3,7 @@ package es.urjc.code.daw.library.book;
 public class LineBreaker {
 
 	public String breakText(String text, int lineLength) {
+		text= text.trim().replaceAll("\s{2,}", " ");
 		if (text.length() <= lineLength){
 			return text;
 		}

@@ -42,6 +42,16 @@ public class LineBreakerTest {
 		testLineBreaker("test test test test", "test test\ntest test", 9);
 	}
 	
+	@Test 
+	public void testWordsLengthEqualsLineLengthAndMoreThanOneSpace() {
+		testLineBreaker("test  test", "test\ntest", 4);
+	}
+	@Test 
+	public void testWordsLengthGreaterLineLengthAndMoreThanOneSpace() {
+		testLineBreaker("test   test", "test\ntest", 6);
+	}
+	
+	
 	@Test
 	private void testLineBreaker(String originalText, String expectedText, int lineLength) {
 		assertEquals(expectedText, new LineBreaker().breakText(originalText, lineLength));		
