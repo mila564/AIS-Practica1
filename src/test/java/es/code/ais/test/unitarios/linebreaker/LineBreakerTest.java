@@ -57,8 +57,23 @@ public class LineBreakerTest {
 	}
 	
 	@Test
-	public void test3WordsConcatanationNeedPartition() {
+	public void test3WordsConcatenationNeedPartition() {
 		testLineBreaker("testtesttest", "test-\ntest-\ntest", 5);
+	}
+	
+	@Test
+	public void testWordsLengthGreaterThanLineLengtNeedPartition() {
+		testLineBreaker("test test", "te-\nst\nte-\nst", 3);
+	}
+	
+	@Test
+	public void testMixWordsLengthGreaterThanLineLengtConcatenationNeedPartition() {
+		testLineBreaker("test 1234567 test", "test\n12345-\n67\ntest", 6);
+	}
+	
+	@Test
+	public void testNumbersLengthGreaterThanLineLengtNeedPartition() {
+		testLineBreaker("123456789", "12-\n34-\n56-\n789", 3);
 	}
 	
 	@Test

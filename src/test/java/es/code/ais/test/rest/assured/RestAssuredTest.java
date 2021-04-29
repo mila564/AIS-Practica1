@@ -48,7 +48,7 @@ class RestAssuredTest{
 		then()
 			.statusCode(200).
 			body("title", equalTo("cumbres borrascosas")).
-			body("description", equalTo("libro de amor"));
+			body("description", equalTo("libro de\namor"));
 	}
 	
 	@Test
