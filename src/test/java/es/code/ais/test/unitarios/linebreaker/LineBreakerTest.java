@@ -1,6 +1,8 @@
 package es.code.ais.test.unitarios.linebreaker;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.Test;
 
 import es.urjc.code.daw.library.book.LineBreaker;
@@ -52,7 +54,7 @@ public class LineBreakerTest {
 	}
 	
 	@Test
-	public void test2WordsConcatanationNeedPartition() {
+	public void test2WordsConcatenationNeedPartition() {
 		testLineBreaker("testtest", "test-\ntest", 5);
 	}
 	
@@ -77,8 +79,15 @@ public class LineBreakerTest {
 	}
 	
 	@Test
+	public void testLineLengthLessThan2throwException() {
+		assertThrows(RuntimeException.class, ()->{
+			new LineBreaker().breakLine("",  1);
+        });
+	}
+	
+	@Test
 	private void testLineBreaker(String originalText, String expectedText, int lineLength) {
-		assertEquals(expectedText, new LineBreaker().breakText(originalText, lineLength, lineLength));		
+		assertEquals(expectedText, new LineBreaker().breakLine(originalText, lineLength));		
 	}
 	
 }
