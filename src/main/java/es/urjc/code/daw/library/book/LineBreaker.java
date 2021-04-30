@@ -8,7 +8,7 @@ public class LineBreaker {
 		return breakLineAux(text,lineLength, lineLength);
 	}
 	public static String breakLineAux(String text, int lineLength, int acc) {
-		text= text.trim().replaceAll("\s{2,}", " ");
+		text= text.trim().replaceAll("\\s{2,}", " ");
 		if (text.length() <= lineLength){
 			return text;
 		}

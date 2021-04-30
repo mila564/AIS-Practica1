@@ -81,13 +81,13 @@ public class LineBreakerTest {
 	@Test
 	public void testLineLengthLessThan2throwException() {
 		assertThrows(RuntimeException.class, ()->{
-			new LineBreaker().breakLine("",  1);
+			LineBreaker.breakLine("",  1);
         });
 	}
 	
 	@Test
 	private void testLineBreaker(String originalText, String expectedText, int lineLength) {
-		assertEquals(expectedText, new LineBreaker().breakLine(originalText, lineLength));		
+		assertEquals(expectedText, LineBreaker.breakLine(originalText, lineLength));		
 	}
 	
 }
