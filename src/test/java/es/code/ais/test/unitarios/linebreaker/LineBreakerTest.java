@@ -48,6 +48,7 @@ public class LineBreakerTest {
 	public void testWordsLengthEqualsLineLengthAndMoreThanOneSpace() {
 		testLineBreaker("test  test", "test\ntest", 4);
 	}
+	
 	@Test 
 	public void testWordsLengthGreaterLineLengthAndMoreThanOneSpace() {
 		testLineBreaker("test   test", "test\ntest", 6);

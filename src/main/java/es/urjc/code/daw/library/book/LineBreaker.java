@@ -1,12 +1,14 @@
 package es.urjc.code.daw.library.book;
 
 public class LineBreaker {
+	
 	public static String breakLine(String text, int lineLength) {
-		if (lineLength<2) {
+		if (lineLength < 2) {
 			throw new RuntimeException("El tamaño de línea no puede ser inferior a 2");
 		}
 		return breakLineAux(text,lineLength, lineLength);
 	}
+	
 	public static String breakLineAux(String text, int lineLength, int acc) {
 		text= text.trim().replaceAll("\\s{2,}", " ");
 		if (text.length() <= lineLength){

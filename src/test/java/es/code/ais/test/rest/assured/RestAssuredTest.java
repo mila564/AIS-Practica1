@@ -18,6 +18,7 @@ import io.restassured.response.Response;
 classes = Application.class,
 webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class RestAssuredTest{
+	
 	@LocalServerPort
 	int port;
 	
@@ -25,6 +26,7 @@ class RestAssuredTest{
 	public void setUp() {
 		RestAssured.port = port;
 	}
+	
 	@Test
 	void bookSaveRestAssuredTest() {
 		
@@ -49,6 +51,7 @@ class RestAssuredTest{
 			.statusCode(200).
 			body("title", equalTo("cumbres borrascosas")).
 			body("description", equalTo("libro de\namor"));
+		
 	}
 	
 	@Test
@@ -79,5 +82,7 @@ class RestAssuredTest{
 			.get("/api/books/{id}",id).
 		then()
 			.statusCode(404);
+		
 	}
+	
 }

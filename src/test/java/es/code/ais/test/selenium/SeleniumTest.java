@@ -23,24 +23,27 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 classes = Application.class,
 webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class SeleniumTest {
-	@LocalServerPort
-	int port;
 	
+	@LocalServerPort
+	int port;	
 	WebDriver driver;
 	
 	@BeforeAll
 	public static void setupClass() {
 		WebDriverManager.chromedriver().setup();
 	}
+	
 	@BeforeEach
 	public void setup() {
 		driver = new ChromeDriver();
 	}
+	
 	@AfterEach 
 	public void teardown() {
 		if(driver != null) 
 			driver.quit();
 	}
+	
 	@Test
 	void bookSaveSeleniumTest() {
 		
@@ -60,7 +63,6 @@ class SeleniumTest {
 		// Then
 		
 		assertNotNull(driver.findElement(By.partialLinkText("Roja")));
-		
 		
 	}
 	
@@ -99,7 +101,6 @@ class SeleniumTest {
 			driver.findElement(by);
 		});
 		
-			
 	}
 	
 }

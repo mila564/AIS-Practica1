@@ -27,8 +27,9 @@ class UnitaryTest {
 		notification = mock(NotificationService.class);
 		bookService = new BookService(repository, notification);
 	    book = new Book("Cumbres Borrascosas", "libro de amor");
-		
+	    
 	} 
+	
 	@Test
 	void bookSaveUnitaryTest() {
 
@@ -47,6 +48,7 @@ class UnitaryTest {
 		verify(notification).notify("Book Event: book with title="+"Cumbres Borrascosas"+" was created");
 			
 	}
+	
 	@Test
 	void bookDeleteUnitaryTest() {
 		
@@ -65,10 +67,10 @@ class UnitaryTest {
 		// Then
 		
 		verify(repository).deleteById(id);
-		verify(notification).notify("Book Event: book with id="+id+" was deleted");
+		verify(notification).notify("Book Event: book with id="+id+" was deleted");	
 		
 	}
-
+	
 }
 
 
